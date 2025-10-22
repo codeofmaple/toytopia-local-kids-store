@@ -13,8 +13,17 @@ const Navbar = () => {
             <NavLink to="/about" className="hover:text-pink-600">About</NavLink>
         </>
     );
-    const { user } = use(AuthContext);
-    console.log(user.name)
+    const { user, logOut } = use(AuthContext);
+    console.log(user)
+
+    const handleLogOut = () => {
+        logOut().then(() => {
+            console.log("Sign-out successful.")
+        }).catch((error) => {
+            console.log(error)
+        });
+        console.log("user trying to log-out")
+    }
 
     return (
         <nav className="bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 shadow-md sticky top-0 z-50">
@@ -32,19 +41,31 @@ const Navbar = () => {
 
                 {/* right section: user-img and login - logout */}
                 <div className="flex items-center gap-3">
-
                     <div className="relative group cursor-pointer block">
                         <FaUserCircle className="text-3xl text-gray-600 hover:text-pink-500 transition" />
                         <div className="absolute hidden group-hover:block bg-white shadow-md rounded-lg text-sm p-3 right-0 mt-2 w-40">
-                            <p className="font-semibold text-gray-700">{user ? user.name : "Guest"} </p>
+                            {/* need to add name here */}
+                            <p className="font-semibold text-gray-700">{user && user.email ? user.email : "Guest"} </p>
                         </div>
                     </div>
 
-                    <Link
-                        to="/login"
-                        className=" bg-pink-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-pink-600 transition">
-                        Login
-                    </Link>
+
+
+                    {user ?
+                        <Link
+                            to="/"
+                            onClick={handleLogOut}
+                            className="btn  bg-pink-500 text-white px-6 rounded-lg text-sm hover:bg-pink-600 transition">
+                            Logout
+                        </Link>
+                        :
+                        <Link
+                            to="/login"
+                            className="btn  bg-pink-500 text-white px-6 rounded-lg text-sm hover:bg-pink-600 transition">
+                            Login
+                        </Link>
+                    }
+
                 </div>
             </div>
 

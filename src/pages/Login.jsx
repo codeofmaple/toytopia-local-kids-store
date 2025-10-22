@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaLock, FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const { logIn, setUser } = use(AuthContext);
+
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({ email, password });
-        // firebase authentication
+        // console.log({ email, password });
+
+        // logIn user firebase
+        logIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                setUser(user)
+                console.log("logIn successful")
+            })
+            .catch((error) => {
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
+                console.log(error)
+            });
     };
 
     const handleGoogleLogin = () => {

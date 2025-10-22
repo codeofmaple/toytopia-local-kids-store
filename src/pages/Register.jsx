@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useState } from "react";
 import { FaUser, FaEnvelope, FaLock, FaImage, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
+    const { createUser, setUser } = use(AuthContext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -29,8 +31,21 @@ const Register = () => {
         }
 
         setError("");
-        console.log({ name, email, photoURL, password });
-        // firebase authentication
+        // console.log({ name, email, photoURL, password });
+
+        // Register user firebase
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                console.log("register successful")
+                // console.log(user.email)
+            })
+            .catch((error) => {
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
+                console.log(error)
+            });
     };
 
     const handleGoogleRegister = () => {
