@@ -1,6 +1,8 @@
 import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
+import { use } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
     const navLinks = (
@@ -11,6 +13,8 @@ const Navbar = () => {
             <NavLink to="/about" className="hover:text-pink-600">About</NavLink>
         </>
     );
+    const { user } = use(AuthContext);
+    console.log(user.name)
 
     return (
         <nav className="bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 shadow-md sticky top-0 z-50">
@@ -32,7 +36,7 @@ const Navbar = () => {
                     <div className="relative group cursor-pointer block">
                         <FaUserCircle className="text-3xl text-gray-600 hover:text-pink-500 transition" />
                         <div className="absolute hidden group-hover:block bg-white shadow-md rounded-lg text-sm p-3 right-0 mt-2 w-40">
-                            <p className="font-semibold text-gray-700">Guest User</p>
+                            <p className="font-semibold text-gray-700">{user ? user.name : "Guest"} </p>
                         </div>
                     </div>
 

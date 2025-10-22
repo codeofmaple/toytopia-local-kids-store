@@ -1,9 +1,12 @@
-import { FaLock, FaEnvelope } from "react-icons/fa";
+import React from 'react';
+import { FaLock, FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -22,50 +25,44 @@ const Login = () => {
             <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
                 {/* form name */}
                 <div className="text-center mb-6">
-                    <img
-                        src={logo}
-                        alt="ToyTopia Logo"
-                        className="w-16 h-16 mx-auto mb-2"
-                    />
+                    <img src={logo} alt="ToyTopia Logo" className="w-16 h-16 mx-auto mb-2" />
                     <h1 className="text-3xl font-extrabold text-pink-600">Welcome Back!</h1>
-                    <p className="text-gray-500 text-sm mt-1">
-                        Log in to your ToyTopia account
-                    </p>
+                    <p className="text-gray-500 text-sm mt-1"> Log in to your ToyTopia account </p>
                 </div>
 
                 {/* login here */}
                 <form onSubmit={handleLogin} className="space-y-5">
+                    {/* email */}
                     <div>
-                        <label className="block font-medium mb-1">
-                            Email Address
-                        </label>
+                        <label className="block font-medium mb-1">Email Address</label>
+
                         <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2
                             focus-within:ring-2  focus-within:ring-pink-400">
                             <FaEnvelope className="text-pink-500 mr-2" />
                             <input
-                                type="email" name="email" placeholder="sample@gmail.com" className="w-full outline-none"
-                                required
-                            />
+                                type="email" name="email" placeholder="Enter your email address" className="w-full outline-none"
+                                required />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block font-medium mb-1">
+                        <label className="block  font-medium mb-1">
                             Password
                         </label>
-                        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 
-                            focus-within:ring-2 focus-within:ring-pink-400">
+                        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-pink-400 relative">
                             <FaLock className="text-pink-500 mr-2" />
-                            <input
-                                type="password" name="password" placeholder="Enter your password" className="w-full outline-none"
-                                required
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter your password" className="w-full outline-none" required
                             />
+                            <button type="button" onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-3 text-gray-500 hover:text-pink-500">
+                                {showPassword ? <FaEye /> : <FaEyeSlash />}
+                            </button>
                         </div>
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full btn bg-pink-500 text-white font-semibold py-2 rounded-lg transition active:scale-99 hover:bg-pink-600 "
+                        className="w-full btn bg-pink-500 text-white py-2 rounded-lg transition active:scale-99 hover:bg-pink-600 font-bold"
                     >
                         Log In
                     </button>

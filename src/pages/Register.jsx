@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import { FaUser, FaEnvelope, FaLock, FaImage, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
@@ -72,7 +73,7 @@ const Register = () => {
                         <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-pink-400">
                             <FaEnvelope className="text-pink-500 mr-2" />
                             <input
-                                type="email" name="email" placeholder="sample@gmail.com" className="w-full outline-none" required />
+                                type="email" name="email" placeholder="Enter your email address" className="w-full outline-none" required />
                         </div>
                     </div>
 
@@ -83,7 +84,7 @@ const Register = () => {
                         </label>
                         <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-pink-400">
                             <FaImage className="text-pink-500 mr-2" />
-                            <input type="text" name="photoURL" placeholder="https://img.com/photo.jpg" className="w-full outline-none"
+                            <input type="text" name="photoURL" placeholder="Provide your photoURL" className="w-full outline-none"
                             />
                         </div>
                     </div>
@@ -95,11 +96,11 @@ const Register = () => {
                         </label>
                         <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-pink-400 relative">
                             <FaLock className="text-pink-500 mr-2" />
-                            <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter password" className="w-full outline-none" required
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter your password" className="w-full outline-none" required
                             />
                             <button type="button" onClick={() => setShowPassword(!showPassword)}
                                 className="absolute right-3 text-gray-500 hover:text-pink-500">
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showPassword ? <FaEye /> : <FaEyeSlash />}
                             </button>
                         </div>
                     </div>
