@@ -13,7 +13,11 @@ const Navbar = () => {
     const navLinks = (
         <>
             <NavLink to="/" className="hover:text-pink-600">Home</NavLink>
-            <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink>
+            {/* <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink> */}
+
+            {
+                user ? <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink> : " "
+            }
             {
                 user ? <NavLink to="/more-toys" className="hover:text-pink-600">More Toys</NavLink> : " "
             }
@@ -27,8 +31,9 @@ const Navbar = () => {
 
         }).catch((error) => {
             console.log(error)
+            toast.error("Sign-out failed.")
         });
-        console.log("user trying to log-out")
+        // console.log("user trying to log-out")
     }
 
     return (
@@ -40,23 +45,25 @@ const Navbar = () => {
                     <span className="text-2xl font-extrabold text-pink-600">ToyTopia</span>
                 </Link>
 
-                {/* middle nav-links */}
                 <ul className="hidden md:flex gap-6 text-gray-700 font-medium">
                     {navLinks}
                 </ul>
 
-                {/* right logout btn*/}
                 <div className="flex items-center gap-3">
                     <div className="relative group cursor-pointer block">
-                        <FaUserCircle className="text-3xl text-gray-600 hover:text-pink-500 transition" />
+                        {/* <FaUserCircle className="text-3xl text-gray-600 hover:text-pink-500 transition" /> */}
+
+                        {
+                            user && user.photoURL ? <img className='size-8 rounded-full' src={user.photoURL} alt="user-photo" /> : <FaUserCircle className="text-3xl size-8 text-gray-600 hover:text-pink-500 transition" />
+                        }
+
                         <div className="absolute hidden group-hover:block bg-white shadow-md rounded-lg text-sm p-3 right-0 mt-2 w-40">
-                            {/* need to add name here */}
-                            <p className="font-semibold text-gray-700">{user && user.email ? user.email : "Guest"} </p>
+                            <p className="font-semibold text-gray-700">{user && user.displayName ? user.displayName : "Guest"} </p>
                         </div>
                     </div>
 
 
-
+                    {/* right logout btn*/}
                     {user ?
                         <Link
                             to="/"

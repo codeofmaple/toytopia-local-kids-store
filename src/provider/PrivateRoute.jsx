@@ -1,11 +1,16 @@
 import React, { use, useEffect, useRef } from "react";
 import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router";
+import { Navigate, useLocation } from "react-router";
+import { ClipLoader, PacmanLoader } from "react-spinners";
+import LoadingPage from "../pages/LoadingPage";
 
 const PrivateRoute = ({ children }) => {
-    const { user } = use(AuthContext);
+    const { user, loading } = use(AuthContext);
     const hasShownToast = useRef(false);
+
+    const location = useLocation();
+    console.log(location)
 
     useEffect(() => {
         if ((!user || !user.email) && !hasShownToast.current) {
@@ -14,10 +19,13 @@ const PrivateRoute = ({ children }) => {
         }
     }, [user]);
 
+    if (loading) {
+        return <LoadingPage></LoadingPage>
+    }
     if (user && user.email) {
         return children;
     } else {
-        return <Navigate to="/login" />;
+        return <Navigate state={location.pathname} to="/login" />;
     }
 };
 

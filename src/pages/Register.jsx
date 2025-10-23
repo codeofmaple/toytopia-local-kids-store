@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import { useState } from "react";
 import { FaUser, FaEnvelope, FaLock, FaImage, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../provider/AuthProvider';
@@ -10,15 +10,21 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser, setUser } = use(AuthContext);
+    const { createUser, setUser, updateUser } = use(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
-        const photoURL = e.target.photoURL.value;
+        const photo = e.target.photoURL.value;
         const password = e.target.password.value;
+        // console.log({ name, email, photo, password });
 
+        if (!name.trim() || !photo.trim()) {
+            toast.error("Please fill out the form.");
+            return;
+        }
         // password errors rules
         if (!/(?=.*[A-Z])/.test(password)) {
             toast.error("Password must contain at least one uppercase letter.");
@@ -33,21 +39,26 @@ const Register = () => {
             return;
         }
 
-        // setError("");
-        // console.log({ name, email, photoURL, password });
-
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                setUser(user);
-                toast.success("registration successful")
-
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photo });
+                        toast.success("Profile updated")
+                        navigate("/")
+                    }).catch((error) => {
+                        console.log(error);
+                        setUser(user);
+                        toast.success("Profile update failed!")
+                    });
+                toast.success("Registration successful")
                 e.target.reset();
             })
             .catch((error) => {
                 const errorCode = error.code;
                 // const errorMessage = error.message;
-                toast.error(`registration failed! ${errorCode}`)
+                toast.error(`Registration failed! ${errorCode}`)
             });
     };
 
@@ -118,7 +129,7 @@ const Register = () => {
                             />
                             <button type="button" onClick={() => setShowPassword(!showPassword)}
                                 className="absolute right-3 text-gray-500 hover:text-pink-500">
-                                {showPassword ? <FaEye /> : <FaEyeSlash />}
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </button>
                         </div>
                     </div>

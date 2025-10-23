@@ -7,6 +7,8 @@ import ToyDetails from "../pages/ToyDetails";
 import MoreToys from "../pages/MoreToys";
 import About from "../pages/About";
 import PrivateRoute from "../provider/PrivateRoute";
+import Profile from "../pages/Profile";
+import ForgetPassword from "../pages/ForgetPassword";
 
 const router = createBrowserRouter(
     [
@@ -22,6 +24,17 @@ const router = createBrowserRouter(
                     loader: () => fetch("/toysdata.json")
                 },
                 {
+                    path: "/profile",
+                    element: <Profile></Profile>
+                },
+                {
+                    path: "/more-toys",
+                    element: <PrivateRoute>
+                        <MoreToys></MoreToys>
+                    </PrivateRoute>,
+                    loader: () => fetch("/toysdata.json")
+                },
+                {
                     path: "/login",
                     element: <Login></Login>
                 },
@@ -30,15 +43,8 @@ const router = createBrowserRouter(
                     element: <Register></Register>
                 },
                 {
-                    path: "/profile",
-                    element: <p>This is profile layout</p>
-                },
-                {
-                    path: "/more-toys",
-                    element: <PrivateRoute>
-                        <MoreToys></MoreToys>
-                    </PrivateRoute>,
-                    loader: () => fetch("/toysdata.json")
+                    path: "/forget-password",
+                    element: <ForgetPassword></ForgetPassword>
                 },
                 {
                     path: "/toy-details/:id",

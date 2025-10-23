@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { FaLock, FaEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
@@ -10,6 +10,9 @@ import { toast } from 'react-toastify';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { logIn, setUser } = use(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log(location)
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -24,6 +27,7 @@ const Login = () => {
                 setUser(user)
                 // console.log("logIn successful")
                 toast.success("logIn successful")
+                navigate(`${location.state ? location.state : "/"}`)
                 e.target.reset();
             })
             .catch((error) => {
@@ -74,9 +78,11 @@ const Login = () => {
                             />
                             <button type="button" onClick={() => setShowPassword(!showPassword)}
                                 className="absolute right-3 text-gray-500 hover:text-pink-500">
-                                {showPassword ? <FaEye /> : <FaEyeSlash />}
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </button>
                         </div>
+                        {/* forget password */}
+                        <p className="text-sm mt-1 text-gray-500">Forgot your password <Link className="text-pink-500 hover:underline font-semibold" to="/forget-password">Click here</Link></p>
                     </div>
 
                     <button
