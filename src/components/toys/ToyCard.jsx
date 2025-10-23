@@ -1,14 +1,9 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
-import { toast } from "react-toastify";
 
 const ToyCard = ({ toy }) => {
     const { toyId, toyName, price, rating, availableQuantity, pictureURL } = toy;
-
-    const handleViewMore = () => {
-        toast.success("Create secure route");
-    }
 
     return (
         <div className=" rounded-2xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-0.5 border border-pink-100 p-4 bg-linear-to-b from-blue-100 to-pink-100 ">
@@ -44,7 +39,6 @@ const ToyCard = ({ toy }) => {
 
                 {/* btn */}
                 <Link
-                    onClick={handleViewMore}
                     to={`/toy-details/${toyId}`}
                     className="block mt-3 bg-pink-600  text-white py-2.5 rounded-xl text-sm  hover:bg-pink-500 transition-all duration-200 active:scale-95 font-bold "
                 >

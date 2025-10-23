@@ -10,7 +10,6 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState("");
     const { createUser, setUser } = use(AuthContext);
 
     const handleRegister = (e) => {
@@ -22,24 +21,25 @@ const Register = () => {
 
         // password errors rules
         if (!/(?=.*[A-Z])/.test(password)) {
-            return setError("Password must contain at least one uppercase letter.");
+            toast.error("Password must contain at least one uppercase letter.");
+            return;
         }
         if (!/(?=.*[a-z])/.test(password)) {
-            return setError("Password must contain at least one lowercase letter.");
+            toast.error("Password must contain at least one lowercase letter.");
+            return;
         }
         if (password.length < 6) {
-            return setError("Password must be at least 6 characters long.");
+            toast.error("Password must be at least 6 characters long.");
+            return;
         }
 
-        setError("");
+        // setError("");
         // console.log({ name, email, photoURL, password });
 
-        // Register user firebase
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                // console.log(user.email)
                 toast.success("registration successful")
 
                 e.target.reset();
@@ -122,13 +122,6 @@ const Register = () => {
                             </button>
                         </div>
                     </div>
-
-                    {/* error */}
-                    {error && (
-                        <div className=" text-red-800 text-sm -mt-4">
-                            {error}
-                        </div>
-                    )}
 
                     <button type="submit" className="w-full bg-pink-500 text-white font-semibold py-2 rounded-lg hover:bg-pink-600 transition">
                         Register

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLoaderData } from 'react-router';
 import Slider from '../components/slider/Slider';
 import ToysCards from '../components/toys/ToysCards';

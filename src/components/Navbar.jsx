@@ -1,23 +1,30 @@
+import React from 'react';
 import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+    const { user, logOut } = use(AuthContext);
+    // console.log(user)
+
     const navLinks = (
         <>
             <NavLink to="/" className="hover:text-pink-600">Home</NavLink>
             <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink>
-            <NavLink to="/more-toys" className="hover:text-pink-600">More Toys</NavLink>
+            {
+                user ? <NavLink to="/more-toys" className="hover:text-pink-600">More Toys</NavLink> : " "
+            }
         </>
     );
-    const { user, logOut } = use(AuthContext);
-    // console.log(user)
 
     const handleLogOut = () => {
         logOut().then(() => {
-            console.log("Sign-out successful.")
+            // console.log("Sign-out successful.")
+            toast.success("Sign-out successful.")
+
         }).catch((error) => {
             console.log(error)
         });

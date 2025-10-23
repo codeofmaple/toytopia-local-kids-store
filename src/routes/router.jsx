@@ -35,12 +35,13 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/more-toys",
-                    element: <MoreToys></MoreToys>,
+                    element: <PrivateRoute>
+                        <MoreToys></MoreToys>
+                    </PrivateRoute>,
                     loader: () => fetch("/toysdata.json")
                 },
                 {
                     path: "/toy-details/:id",
-                    // element: <ToyDetails></ToyDetails>,
                     element: <PrivateRoute>
                         <ToyDetails></ToyDetails>
                     </PrivateRoute>,

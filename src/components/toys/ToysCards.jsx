@@ -1,13 +1,8 @@
 import React from 'react';
 import ToyCard from './ToyCard';
-import { toast } from 'react-toastify';
 import { Link } from 'react-router';
 
 const ToysCards = ({ toysData }) => {
-    // console.log(toysData)
-    const handleAllToys = () => {
-        toast.success("okay let go to all toys")
-    }
 
     return (
         <div>
@@ -27,7 +22,6 @@ const ToysCards = ({ toysData }) => {
 
             {/* btn */}
             <Link
-                onClick={handleAllToys}
                 to={`/more-toys`}
                 className="block btn-primary mt-8 py-4 md:max-w-2xl max-w-11/12 bg-pink-600 mx-auto text-center 
                 bg-linear-to-r from-blue-500  via-pink-600 to-pink-600 hover:scale-102
