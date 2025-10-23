@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import ToyDetails from "../pages/ToyDetails";
 import MoreToys from "../pages/MoreToys";
 import About from "../pages/About";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter(
     [
@@ -38,12 +39,11 @@ const router = createBrowserRouter(
                     loader: () => fetch("/toysdata.json")
                 },
                 {
-                    path: "/about",
-                    element: <About></About>
-                },
-                {
                     path: "/toy-details/:id",
-                    element: <ToyDetails></ToyDetails>,
+                    // element: <ToyDetails></ToyDetails>,
+                    element: <PrivateRoute>
+                        <ToyDetails></ToyDetails>
+                    </PrivateRoute>,
                     loader: () => fetch("/toysdata.json")
                 },
                 {

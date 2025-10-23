@@ -7,7 +7,7 @@ const MoreToys = () => {
     console.log(toysData)
     return (
         <div>
-            <section className='popular-section max-container'>
+            <section className='popular-section max-container  md:w-full w-11/12'>
                 <AllToysCards toysData={toysData}></AllToysCards>
             </section>
         </div>

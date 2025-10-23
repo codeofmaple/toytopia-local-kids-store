@@ -5,6 +5,7 @@ import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { AuthContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -21,12 +22,15 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                console.log("logIn successful")
+                // console.log("logIn successful")
+                toast.success("logIn successful")
+                e.target.reset();
             })
             .catch((error) => {
-                // const errorCode = error.code;
+                const errorCode = error.code;
                 // const errorMessage = error.message;
-                console.log(error)
+                // console.log(error)
+                toast.error(`logIn failed! ${errorCode}`)
             });
     };
 

@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import logo from '../assets/ToyTopia_logo_img.png'
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 
 const Register = () => {
@@ -38,13 +39,15 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                console.log("register successful")
                 // console.log(user.email)
+                toast.success("registration successful")
+
+                e.target.reset();
             })
             .catch((error) => {
-                // const errorCode = error.code;
+                const errorCode = error.code;
                 // const errorMessage = error.message;
-                console.log(error)
+                toast.error(`registration failed! ${errorCode}`)
             });
     };
 
