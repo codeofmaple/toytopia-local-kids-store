@@ -3,6 +3,9 @@ import HomeLayout from "../layouts/HomeLayout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ToyDetails from "../pages/ToyDetails";
+import MoreToys from "../pages/MoreToys";
+import About from "../pages/About";
 
 const router = createBrowserRouter(
     [
@@ -12,8 +15,10 @@ const router = createBrowserRouter(
             children: [
 
                 {
+                    index: true,
                     path: "/",
-                    element: <Home></Home>
+                    element: <Home></Home>,
+                    loader: () => fetch("/toysdata.json")
                 },
                 {
                     path: "/login",
@@ -24,20 +29,26 @@ const router = createBrowserRouter(
                     element: <Register></Register>
                 },
                 {
-                    path: "/toy-details",
-                    element: <p>Toy Details layout</p>
-                },
-                {
                     path: "/profile",
                     element: <p>This is profile layout</p>
                 },
                 {
                     path: "/more-toys",
-                    element: <p>This is more toys</p>
+                    element: <MoreToys></MoreToys>,
+                    loader: () => fetch("/toysdata.json")
                 },
                 {
                     path: "/about",
-                    element: <p>This is about</p>
+                    element: <About></About>
+                },
+                {
+                    path: "/toy-details/:id",
+                    element: <ToyDetails></ToyDetails>,
+                    loader: () => fetch("/toysdata.json")
+                },
+                {
+                    path: "/*",
+                    element: <p>404 - error 2</p>
                 },
             ]
         },

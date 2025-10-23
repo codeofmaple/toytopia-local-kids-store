@@ -10,11 +10,10 @@ const Navbar = () => {
             <NavLink to="/" className="hover:text-pink-600">Home</NavLink>
             <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink>
             <NavLink to="/more-toys" className="hover:text-pink-600">More Toys</NavLink>
-            <NavLink to="/about" className="hover:text-pink-600">About</NavLink>
         </>
     );
     const { user, logOut } = use(AuthContext);
-    console.log(user)
+    // console.log(user)
 
     const handleLogOut = () => {
         logOut().then(() => {
@@ -26,20 +25,20 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 shadow-md sticky top-0 z-50">
+        <nav className="bg-linear-to-r from-pink-200 via-blue-100 to-yellow-100 shadow-md   ">
             <div className="max-container px-4 py-3 flex items-center justify-between">
-                {/* left section:  the logo and website name*/}
+                {/* left name/logo*/}
                 <Link to="/" className="flex items-center gap-2">
                     <img src={logo} alt="ToyTopia Logo" className="w-10 h-10" />
                     <span className="text-2xl font-extrabold text-pink-600">ToyTopia</span>
                 </Link>
 
-                {/* middle section : the tabs */}
+                {/* middle nav-links */}
                 <ul className="hidden md:flex gap-6 text-gray-700 font-medium">
                     {navLinks}
                 </ul>
 
-                {/* right section: user-img and login - logout */}
+                {/* right logout btn*/}
                 <div className="flex items-center gap-3">
                     <div className="relative group cursor-pointer block">
                         <FaUserCircle className="text-3xl text-gray-600 hover:text-pink-500 transition" />
@@ -69,7 +68,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* navlinks for smartphone */}
+            {/* nav-links for smartphone */}
             <div className="md:hidden bg-pink-50 border-t border-pink-200 py-2 flex justify-center gap-4 text-sm">
                 {navLinks}
             </div>

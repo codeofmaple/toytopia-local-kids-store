@@ -12,7 +12,7 @@ import img5 from '../../assets/img_5.jpg'
 
 const Slider = () => {
     return (
-        <div className="max-w-7xl mx-auto mt-6 rounded-xl overflow-hidden mb-6">
+        <div className="max-w-7xl mx-auto rounded-xl overflow-hidden mb-6">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 navigation

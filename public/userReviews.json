@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Sophie Turner",
+        "image": "https://i.ibb.co.com/tMm8LXQy/mother-22.jpg",
+        "rating": 5,
+        "review": "ToyTopia is my go-to store! The toys are colorful, safe, and my kids absolutely love them. Supporting local sellers makes it even better!"
+    },
+    {
+        "id": 2,
+        "name": "Ava Rose",
+        "image": "https://i.ibb.co.com/js6g3jg/mother-11.jpg",
+        "rating": 4,
+        "review": "Really loved the quick delivery and quality of the toys. My daughter can’t stop playing with her new building blocks from ToyTopia!"
+    },
+    {
+        "id": 3,
+        "name": "Emma Johnson",
+        "image": "https://i.ibb.co.com/xK6qffLj/mother-33.jpg",
+        "rating": 5,
+        "review": "Such a beautiful platform! Everything feels vibrant and fun. The customer service is also super helpful and kind!"
+    }
+]
