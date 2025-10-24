@@ -4,9 +4,10 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 const Footer = () => {
     return (
         <footer className="bg-linear-to-r from-pink-200 via-100% to-blue-100  text-gray-800">
-            <div className="max-container px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="max-container px-6 py-10 
+            grid grid-cols-1 md:grid-cols-4 place-items-center gap-8">
                 {/* website info */}
-                <div>
+                <div className='text-center md:text-start'>
                     <h2 className="text-2xl font-extrabold text-pink-600 mb-3">ToyTopia</h2>
                     <p className="text-sm text-gray-600">
                         A vibrant marketplace helping families discover and support local toy sellers.
@@ -15,7 +16,7 @@ const Footer = () => {
                 </div>
 
                 {/* related links */}
-                <div>
+                <div className='text-center md:text-start'>
                     <h3 className="text-lg font-semibold text-pink-600 mb-2">Quick Links</h3>
                     <ul className="space-y-1 text-sm">
                         <li><a href="/" className="hover:text-pink-600">Home</a></li>
@@ -26,7 +27,7 @@ const Footer = () => {
                 </div>
 
                 {/* policies and term-conditions */}
-                <div>
+                <div className='text-center md:text-start'>
                     <h3 className="text-lg font-semibold text-pink-600 mb-2">Policies</h3>
                     <ul className="space-y-1 text-sm">
                         <li><a href="#" className="hover:text-pink-600">Privacy Policy</a></li>
@@ -37,9 +38,9 @@ const Footer = () => {
                 </div>
 
                 {/* social links */}
-                <div>
+                <div className='text-center md:text-start'>
                     <h3 className="text-lg font-semibold text-pink-600 mb-2">Follow Us</h3>
-                    <div className="flex gap-4 text-2xl">
+                    <div className="flex md:justify-normal justify-center gap-4 text-2xl">
                         <a href="#" className="hover:text-blue-600"><FaFacebook /></a>
                         <a href="#" className="hover:text-pink-500"><FaInstagram /></a>
                         <a href="#" className="hover:text-sky-500"><FaTwitter /></a>

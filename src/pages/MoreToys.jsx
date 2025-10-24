@@ -5,10 +5,12 @@ import AllToysCards from '../components/toys/AllToysCards';
 const MoreToys = () => {
     const toysData = useLoaderData()
     return (
-        <div>
+        <div className='bg-linear-to-br from-pink-50 via-pink-50 to-blue-50'>
             <title>ToyTopia | More Toys</title>
 
-            <section className='popular-section max-container  md:w-full w-11/12'>
+            <section className='popular-section max-container  md:w-full w-11/12 
+            bg-transparent
+            '>
                 <AllToysCards toysData={toysData}></AllToysCards>
             </section>
         </div>

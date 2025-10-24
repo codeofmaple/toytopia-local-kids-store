@@ -7,17 +7,7 @@ import { Link, NavLink, useNavigate } from 'react-router';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
-    // console.log("User photoURL:", user?.photoURL);
     const navigate = useNavigate()
-
-    const goToProfile = () => {
-        if (user) {
-            navigate("./profile");
-        }
-    };
-
-
 
     const navLinks = (
         <>
@@ -34,7 +24,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-linear-to-r from-pink-200 via-blue-100 to-yellow-50 shadow-md">
+        <nav className="bg-linear-to-r from-pink-200 via-pink-100 to-blue-50 shadow-md">
             <div className="max-container px-4 py-3 flex items-center justify-between">
                 {/* logo */}
                 <Link to="/" className="flex items-center gap-2">
@@ -52,7 +42,7 @@ const Navbar = () => {
                     <div className="relative group cursor-pointer block">
                         {user && user.photoURL ? (
                             <img
-                                onClick={goToProfile}
+                                onClick={() => navigate("./profile")}
                                 className="size-8 rounded-full"
                                 src={user.photoURL}
                                 alt="user-photo"
@@ -89,7 +79,7 @@ const Navbar = () => {
             </div>
 
             {/* mobile nav */}
-            <div className="md:hidden bg-pink-50 border-t border-pink-200 py-2 flex justify-center gap-4 text-sm">
+            <div className="md:hidden bg-pink-100 border-t border-pink-200 py-2 flex justify-center gap-4 text-sm">
                 {navLinks}
             </div>
         </nav>
