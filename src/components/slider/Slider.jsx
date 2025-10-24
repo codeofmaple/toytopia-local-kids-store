@@ -43,13 +43,13 @@ const Slider = () => {
             >
                 {slides.map((toy, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative w-full h-[420px] md:h-[580px] overflow-hidden">
+                        <div className="relative w-full md:aspect-1280/580 overflow-hidden">
                             {/* img */}
                             <img
                                 loading="lazy"
                                 src={toy.src}
                                 alt={toy.alt}
-                                className="w-full h-full object-cover transform transition-transform duration-900 ease-in-out scale-100 hover:scale-105"
+                                className="size-full object-cover transform transition-transform duration-900 ease-in-out scale-100 hover:scale-105"
                             />
 
                             <div className="absolute inset-0 pointer-events-none 
