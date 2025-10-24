@@ -48,9 +48,9 @@ const Register = () => {
                         toast.success("Profile updated")
                         navigate("/")
                     }).catch((error) => {
-                        console.log(error);
+                        const errorCode = error.code;
                         setUser(user);
-                        toast.success("Profile update failed!")
+                        toast.success(`Profile update failed! ${errorCode}`)
                     });
                 toast.success("Registration successful")
                 e.target.reset();
@@ -63,7 +63,6 @@ const Register = () => {
     };
 
     const handleGoogleRegister = () => {
-        console.log("google google clicked");
         // google authentication
     };
 

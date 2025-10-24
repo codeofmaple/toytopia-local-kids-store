@@ -14,7 +14,6 @@ const ForgetPassword = () => {
         e.preventDefault();
 
         const email = user ? user.email : e.target.email.value;
-        // console.log(email)
 
         forgetPassword(email)
             .then(() => {

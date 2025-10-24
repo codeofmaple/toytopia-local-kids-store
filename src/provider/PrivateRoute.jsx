@@ -1,7 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Navigate, useLocation } from "react-router";
-import { ClipLoader, PacmanLoader } from "react-spinners";
 import LoadingPage from "../pages/LoadingPage";
 
 const PrivateRoute = ({ children }) => {

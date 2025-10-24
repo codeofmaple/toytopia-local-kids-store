@@ -8,13 +8,10 @@ import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext);
-    // console.log(user)
 
     const navLinks = (
         <>
             <NavLink to="/" className="hover:text-pink-600">Home</NavLink>
-            {/* <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink> */}
-
             {
                 user ? <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink> : " "
             }
@@ -26,18 +23,16 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut().then(() => {
-            // console.log("Sign-out successful.")
             toast.success("Sign-out successful.")
 
         }).catch((error) => {
-            console.log(error)
-            toast.error("Sign-out failed.")
+            const errorCode = error.code;
+            toast.error(`Sign-out failed. ${errorCode}`)
         });
-        // console.log("user trying to log-out")
     }
 
     return (
-        <nav className="bg-linear-to-r from-pink-200 via-blue-100 to-yellow-100 shadow-md   ">
+        <nav className="bg-linear-to-r from-pink-200 via-100% via-blue-100 to-amber-50 shadow-md   ">
             <div className="max-container px-4 py-3 flex items-center justify-between">
                 {/* left name/logo*/}
                 <Link to="/" className="flex items-center gap-2">

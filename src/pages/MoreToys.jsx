@@ -4,7 +4,6 @@ import AllToysCards from '../components/toys/AllToysCards';
 
 const MoreToys = () => {
     const toysData = useLoaderData()
-    // console.log(toysData)
     return (
         <div>
             <section className='popular-section max-container  md:w-full w-11/12'>

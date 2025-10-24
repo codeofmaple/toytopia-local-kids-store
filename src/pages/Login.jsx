@@ -12,7 +12,6 @@ const Login = () => {
     const { logIn, setUser } = use(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    // console.log(location)
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -20,12 +19,11 @@ const Login = () => {
         const password = e.target.password.value;
         // console.log({ email, password });
 
-        // logIn user firebase
+        // logIn firebase
         logIn(email, password)
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                // console.log("logIn successful")
                 toast.success("logIn successful")
                 navigate(`${location.state ? location.state : "/"}`)
                 e.target.reset();
@@ -33,13 +31,11 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 // const errorMessage = error.message;
-                // console.log(error)
                 toast.error(`logIn failed! ${errorCode}`)
             });
     };
 
     const handleGoogleLogin = () => {
-        console.log("i clicked goggle");
         // google authentication
     };
 

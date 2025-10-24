@@ -56,7 +56,7 @@ const About = () => {
             {/* msg */}
             <div className="mt-16 text-center">
                 <h2 className="text-3xl font-bold text-pink-600 mb-3">
-                    🚀 Join Our Playful Journey!
+                    🎉 Join Our Playful Journey!
                 </h2>
                 <p className="text-gray-700 md:w-2/3 mx-auto">
                     Whether you're a parent looking for the perfect toy or a small seller

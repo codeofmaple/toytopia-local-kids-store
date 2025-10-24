@@ -7,9 +7,7 @@ import ErrorPage from "./ErrorPage";
 const ToyDetails = () => {
     const toysData = useLoaderData();
     const { id } = useParams();
-    // console.log(id)
     const toy = toysData.find((toy) => toy.toyId == id);
-
 
     const [formData, setFormData] = useState({ name: "", email: "" });
 
@@ -30,7 +28,7 @@ const ToyDetails = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto my-10 p-6 bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 rounded-3xl shadow-lg">
+        <div className="md:max-w-4xl max-w-11/12 mx-auto my-10 p-6 bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 rounded-3xl shadow-lg">
             {/* img */}
             <div className="w-full h-92 rounded-2xl">
                 <img
@@ -45,7 +43,7 @@ const ToyDetails = () => {
                 <h2 className="text-3xl font-bold text-pink-600">{toy.toyName}</h2>
                 <p className="text-gray-700 mt-2">{toy.description}</p>
 
-                <div className="flex flex-wrap justify-between items-center mt-4">
+                <div className="grid md:grid-cols-4 grid-cols-2 center mt-4">
                     <p className="font-semibold text-lg text-gray-800">
                         Price: <span className="text-pink-600">${toy.price.toFixed(2)}</span>
                     </p>

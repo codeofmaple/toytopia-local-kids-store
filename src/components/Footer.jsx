@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="bg-linear-to-r from-pink-200 via-yellow-100 to-blue-200 text-gray-800">
+        <footer className="bg-linear-to-r from-pink-200 via-100% to-blue-100  text-gray-800">
             <div className="max-container px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* website info */}
                 <div>
@@ -51,7 +51,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="bg-pink-100 text-center py-4 text-sm border-t border-pink-200">
+            <div className="bg-linear-to-r from-blue-100  to-pink-200 text-center py-4 text-sm border-t border-pink-200">
                 © 2025 <span className="font-bold text-pink-600">ToyTopia</span> | All Rights Reserved
             </div>
         </footer>
