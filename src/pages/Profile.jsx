@@ -1,25 +1,33 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaUserAlt, FaImage, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router";
+import LoadingPage from "./LoadingPage";
 
 const Profile = () => {
     const { user, updateUser, setUser } = useContext(AuthContext);
     const [name, setName] = useState(user?.displayName || "");
     const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
-    const [loading, setLoading] = useState(false);
+    const [loadingSubmit, setLoadingSubmit] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false)
+        }, 100)
+
+        return () => clearInterval(timer);
+    }, [])
 
     const handleUpdate = (e) => {
         e.preventDefault();
-
         if (!name.trim() || !photoURL.trim()) {
             toast.error("Please fill out both fields before saving.");
             return;
         }
-
-        setLoading(true);
+        setLoadingSubmit(true);
         updateUser({ displayName: name, photoURL: photoURL })
             .then(() => {
                 setUser((prevUser) => ({
@@ -35,13 +43,16 @@ const Profile = () => {
                 toast.error("Profile update failed!");
             })
             .finally(() => {
-                setLoading(false);
+                setLoadingSubmit(false);
             });
     };
-
     const handleInputChange = (result) => (e) => {
         result(e.target.value);
     };
+
+    if (loading) {
+        return <LoadingPage></LoadingPage>
+    }
 
     return (
         <div className="min-h-screen bg-linear-to-br from-pink-50 via-yellow-50 to-blue-50 flex justify-center items-center py-16 px-6">
@@ -82,7 +93,7 @@ const Profile = () => {
                             onChange={handleInputChange(setName)}
                             placeholder="Enter your name"
                             className="w-full border border-pink-200 rounded-xl px-4 py-2 focus:ring-2 focus:ring-pink-400 outline-none"
-                            disabled={loading}
+                            disabled={loadingSubmit}
                             required
                         />
                     </div>
@@ -97,20 +108,20 @@ const Profile = () => {
                             onChange={handleInputChange(setPhotoURL)}
                             placeholder="Enter photo URL"
                             className="w-full border border-pink-200 rounded-xl px-4 py-2 focus:ring-2 focus:ring-pink-400 outline-none"
-                            disabled={loading}
+                            disabled={loadingSubmit}
                             required
                         />
                     </div>
                     {/* btn */}
                     <button
                         type="submit"
-                        disabled={loading}
-                        className={`w-full py-2 rounded-full shadow transition-all duration-300 ${loading
+                        disabled={loadingSubmit}
+                        className={`w-full py-2 rounded-full shadow transition-all duration-300 ${loadingSubmit
                             ? 'bg-gray-400 cursor-not-allowed'
                             : 'bg-pink-500 hover:bg-pink-600 text-white'
                             }`}
                     >
-                        {loading ? 'Updating...' : 'Save Changes'}
+                        {loadingSubmit ? 'Saving Changes...' : 'Save Changes'}
                     </button>
                 </form>
                 {/* forget password */}

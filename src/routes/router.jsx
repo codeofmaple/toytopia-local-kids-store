@@ -9,6 +9,8 @@ import About from "../pages/About";
 import PrivateRoute from "../provider/PrivateRoute";
 import Profile from "../pages/Profile";
 import ForgetPassword from "../pages/ForgetPassword";
+import ErrorPage from "../pages/ErrorPage";
+import LoadingPage from "../pages/LoadingPage";
 
 const router = createBrowserRouter(
     [
@@ -21,18 +23,22 @@ const router = createBrowserRouter(
                     index: true,
                     path: "/",
                     element: <Home></Home>,
-                    loader: () => fetch("/toysdata.json")
+                    loader: () => fetch("/toysdata.json"),
+                    hydrateFallbackElement: <LoadingPage></LoadingPage>
                 },
                 {
                     path: "/profile",
-                    element: <Profile></Profile>
+                    element: <PrivateRoute>
+                        <Profile></Profile>
+                    </PrivateRoute>
                 },
                 {
                     path: "/more-toys",
                     element: <PrivateRoute>
                         <MoreToys></MoreToys>
                     </PrivateRoute>,
-                    loader: () => fetch("/toysdata.json")
+                    loader: () => fetch("/toysdata.json"),
+                    hydrateFallbackElement: <LoadingPage></LoadingPage>
                 },
                 {
                     path: "/login",
@@ -51,17 +57,18 @@ const router = createBrowserRouter(
                     element: <PrivateRoute>
                         <ToyDetails></ToyDetails>
                     </PrivateRoute>,
-                    loader: () => fetch("/toysdata.json")
+                    loader: () => fetch("/toysdata.json"),
+                    hydrateFallbackElement: <LoadingPage></LoadingPage>
                 },
                 {
                     path: "/*",
-                    element: <p>404 - error 2</p>
+                    element: <ErrorPage></ErrorPage>
                 },
             ]
         },
         {
             path: "/*",
-            element: <p>404 - error</p>
+            element: <ErrorPage></ErrorPage>
         },
     ]
 )

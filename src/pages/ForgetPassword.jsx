@@ -3,10 +3,11 @@ import { FaEnvelopeOpenText } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
+import LoadingPage from "./LoadingPage";
 
 
 const ForgetPassword = () => {
-    const { setLoading, forgetPassword, user } = useContext(AuthContext);
+    const { forgetPassword, user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleResetPassword = (e) => {
@@ -14,8 +15,6 @@ const ForgetPassword = () => {
 
         const email = user ? user.email : e.target.email.value;
         // console.log(email)
-
-        setLoading(true);
 
         forgetPassword(email)
             .then(() => {
@@ -29,10 +28,9 @@ const ForgetPassword = () => {
                 console.error(error);
                 toast.error("Failed to send password reset link. Please try again.");
             })
-            .finally(() => {
-                setLoading(false);
-            });
     };
+
+
 
     return (
         <div className="min-h-screen bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 flex justify-center items-center px-4 py-16">

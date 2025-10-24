@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 import { toast } from "react-toastify";
-import cryingBaby from '../assets/crying baba 02.png'
+import ErrorPage from "./ErrorPage";
 
 const ToyDetails = () => {
     const toysData = useLoaderData();
@@ -15,10 +15,7 @@ const ToyDetails = () => {
 
     if (!toy) {
         return (
-            <div className="flex items-center w-11/12 mx-auto justify-center min-h-[70vh] text-pink-600 font-semibold text-xl text-center">
-                Why there is not toys here? <br /> Plz give me toys...
-                <img src={cryingBaby} alt="Crying Baby" className="size-60" />
-            </div>
+            <ErrorPage></ErrorPage>
         );
     }
 
@@ -34,7 +31,7 @@ const ToyDetails = () => {
 
     return (
         <div className="max-w-4xl mx-auto my-10 p-6 bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 rounded-3xl shadow-lg">
-            {/* Toy Image */}
+            {/* img */}
             <div className="w-full h-92 rounded-2xl">
                 <img
                     src={toy.pictureURL}
