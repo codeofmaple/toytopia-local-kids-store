@@ -36,7 +36,7 @@ const ErrorPage = () => {
                 Oops!
             </h1>
             <p className="text-lg text-gray-700 mt-3 font-medium">
-                Looks like this toy ran away...
+                Looks like the toy ran away...
             </p>
 
             <h3 className="text-2xl font-medium text-gray-400 mt-5">Error 404</h3>

@@ -23,7 +23,7 @@ const ToyDetails = () => {
             toast.error("Please fill in all fields!");
             return;
         }
-        toast.success(`Thank you, ${formData.name}! You’ve trying the ${toy.toyName}.`);
+        toast.success(`Thank you, ${formData.name}! For trying the ${toy.toyName}.`);
         setFormData({ name: "", email: "" });
     };
 

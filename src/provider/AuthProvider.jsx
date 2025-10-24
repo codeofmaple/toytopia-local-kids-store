@@ -66,9 +66,9 @@ const AuthProvider = ({ children }) => {
         logInWithGoogle,
     }
 
-    if (loading) {
-        return <div className='min-h-screen flex justify-center items-center animate-ping'><LoadingPage /></div>
-    }
+    // if (loading) {
+    //     return <div className='min-h-screen flex justify-center items-center animate-ping'><LoadingPage /></div>
+    // }
 
     return <AuthContext value={authData}>
         {children}

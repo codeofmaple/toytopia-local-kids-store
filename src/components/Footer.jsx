@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className='text-center md:text-start'>
                     <h2 className="text-2xl font-extrabold text-pink-600 mb-3">ToyTopia</h2>
                     <p className="text-sm text-gray-600">
-                        A vibrant marketplace helping families discover and support local toy sellers.
+                        A vibrant marketplace helping families discover and support local toy sellers. <br />
                         Fun, safe, and creative — all in one place!
                     </p>
                 </div>

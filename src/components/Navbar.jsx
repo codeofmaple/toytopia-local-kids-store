@@ -12,7 +12,7 @@ const Navbar = () => {
     const navLinks = (
         <>
             <NavLink to="/" className="hover:text-pink-600">Home</NavLink>
-            {user && <NavLink to="/profile" className="hover:text-pink-600">Profile</NavLink>}
+            {user && <NavLink to="/profile" className="hover:text-pink-600">My Profile</NavLink>}
             {user && <NavLink to="/more-toys" className="hover:text-pink-600">More Toys</NavLink>}
         </>
     );
