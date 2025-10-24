@@ -1,16 +1,63 @@
-# React + Vite
+# ToyTopia – A Local Kids Toy Store Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ToyTopia** is a vibrant and playful online marketplace for kids' toys, encouraging families to discover and support local toy sellers. Users can log in, browse toys, view detailed info, and leave feedback or ratings for toys they want to buy for their kids.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live URL
+🔗 [https://toytopia-kids-toystore.web.app/]
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Purpose
+The goal of **ToyTopia** is to provide a colorful, interactive, and user-friendly toy shopping experience while supporting local toy stores. It aims to inspire imagination and fun in every child through an accessible digital platform.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Key Features
+
+-  **User Registration & Profile Management**
+-  **Firebase Authentication (Email & Google Login)**
+-  **Browse and View Toy Details**
+-  **User Reviews & Ratings**
+-  **Swiper Slider for Toy Showcase**
+-  **Protected Routes for Authenticated Users**
+-  **Responsive Design using Tailwind CSS & DaisyUI**
+-  **Toast Notifications for Actions**
+-  **Custom Error Page with Crying Baby Image**
+-  **Profile Update with Firebase updateProfile()**
+
+---
+
+## NPM Packages Used
+
+| Package | Purpose |
+|----------|----------|
+| react             | Core UI library |
+| react-dom         | React DOM rendering |
+| react-router      | Client-side routing |
+| firebase          | Authentication & backend services |
+| tailwindcss       | Utility-first CSS framework |
+| daisyui           | Tailwind component library |
+| swiper            | Image carousel/slider |
+| react-icons       | Icon library |
+| react-spinners    | Loading animations |
+| react-toastify    | Toast notifications |
+| @tailwindcss/vite | Tailwind support for Vite |
+
+
+---
+
+##  Tech Stack
+
+- **Frontend:** React, TailwindCSS, DaisyUI  
+- **Backend & Auth:** Firebase  
+- **Routing:** React Router  
+- **UI Enhancements:** Swiper, React Icons, Toastify  
+
+---
+
+## 📄 License
+This project is open-source under the **MIT License**.
+
+---
