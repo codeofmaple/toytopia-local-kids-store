@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser, setUser, updateUser } = use(AuthContext);
+    const { createUser, setUser, updateUser, logInWithGoogle, auth } = use(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
@@ -63,7 +63,20 @@ const Register = () => {
     };
 
     const handleGoogleRegister = () => {
-        // google authentication
+        logInWithGoogle()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                toast.success("Google login successful!");
+
+                auth.currentUser?.reload().then(() => {
+                    setUser(auth.currentUser);
+                });
+                navigate("/");
+            }).catch((error) => {
+                const errorMessage = error.message;
+                toast.error(`Google login failed! ${errorMessage}`)
+            });
     };
 
     return (
