@@ -3,12 +3,21 @@ import { FaUserCircle } from "react-icons/fa";
 import logo from '../assets/ToyTopia_logo_img.png';
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from 'react-toastify';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    console.log("User photoURL:", user?.photoURL);
+    // console.log("User photoURL:", user?.photoURL);
+    const navigate = useNavigate()
+
+    const goToProfile = () => {
+        if (user) {
+            navigate("./profile");
+        }
+    };
+
+
 
     const navLinks = (
         <>
@@ -43,6 +52,7 @@ const Navbar = () => {
                     <div className="relative group cursor-pointer block">
                         {user && user.photoURL ? (
                             <img
+                                onClick={goToProfile}
                                 className="size-8 rounded-full"
                                 src={user.photoURL}
                                 alt="user-photo"
