@@ -13,14 +13,17 @@ const ForgetPassword = () => {
         e.preventDefault();
 
         const email = user ? user.email : e.target.email.value;
-        console.log(email)
+        // console.log(email)
 
         setLoading(true);
 
         forgetPassword(email)
             .then(() => {
-                toast.success("Password reset link sent! Please check your email!")
-                // navigate("/login");
+                toast.success("Password reset link sent! Redirecting to Gmail...", { autoClose: 1250 })
+                setTimeout(() => {
+                    window.open("https://mail.google.com", "_blank");
+                    navigate("/login");
+                }, 2000);
             })
             .catch((error) => {
                 console.error(error);
@@ -62,7 +65,6 @@ const ForgetPassword = () => {
                             readOnly={!!user}
                             required
                         />
-
                     </div>
 
                     <button
