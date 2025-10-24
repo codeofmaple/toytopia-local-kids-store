@@ -1,6 +1,8 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
+@plugin "daisyui" {
+    themes: light --default;
+}
 
 a.active {
     @apply text-pink-600 font-semibold hover:text-pink-500
