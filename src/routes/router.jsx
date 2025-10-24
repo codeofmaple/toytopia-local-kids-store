@@ -5,7 +5,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ToyDetails from "../pages/ToyDetails";
 import MoreToys from "../pages/MoreToys";
-import About from "../pages/About";
 import PrivateRoute from "../provider/PrivateRoute";
 import Profile from "../pages/Profile";
 import ForgetPassword from "../pages/ForgetPassword";
@@ -60,10 +59,10 @@ const router = createBrowserRouter(
                     loader: () => fetch("/toysdata.json"),
                     hydrateFallbackElement: <LoadingPage></LoadingPage>
                 },
-                {
-                    path: "/*",
-                    element: <ErrorPage></ErrorPage>
-                },
+                // {
+                //     path: "/*",
+                //     element: <ErrorPage></ErrorPage>
+                // },
             ]
         },
         {

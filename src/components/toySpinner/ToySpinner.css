@@ -1,6 +1,7 @@
 .toy-spinner {
-    animation: spin 0.8s linear infinite;
+    animation: spin 0.85s linear infinite;
     display: block;
+    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.5));
 }
 
 @keyframes spin {

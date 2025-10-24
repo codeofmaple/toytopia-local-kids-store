@@ -81,6 +81,8 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 p-4">
+            <title>ToyTopia | Register</title>
+
             <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
                 {/* form title and img */}
                 <div className="text-center mb-6">

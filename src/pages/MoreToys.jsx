@@ -6,6 +6,8 @@ const MoreToys = () => {
     const toysData = useLoaderData()
     return (
         <div>
+            <title>ToyTopia | More Toys</title>
+
             <section className='popular-section max-container  md:w-full w-11/12'>
                 <AllToysCards toysData={toysData}></AllToysCards>
             </section>

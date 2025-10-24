@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
+import LoadingPage from '../pages/LoadingPage';
 export const AuthContext = createContext()
 
 const auth = getAuth(app);
@@ -63,6 +64,10 @@ const AuthProvider = ({ children }) => {
         updateUser,
         forgetPassword,
         logInWithGoogle,
+    }
+
+    if (loading) {
+        return <div className='min-h-screen flex justify-center items-center animate-ping'><LoadingPage /></div>
     }
 
     return <AuthContext value={authData}>

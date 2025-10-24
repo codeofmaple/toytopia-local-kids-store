@@ -54,6 +54,8 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 p-4">
+            <title>ToyTopia | Log-in</title>
+
             <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
                 {/* form name */}
                 <div className="text-center mb-6">

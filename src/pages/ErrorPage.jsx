@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FaHome } from "react-icons/fa";
 import cryingBaby from "../assets/crying baba 02.png";
+import LoadingPage from "./LoadingPage";
 
 const ErrorPage = () => {
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false)
+        }, 150)
+
+        return () => clearInterval(timer);
+    }, [])
+
+    if (loading) {
+        return <LoadingPage></LoadingPage>
+    }
+
     return (
-        <div className="min-h-[80vh] flex flex-col justify-center items-center
+        <div className="min-h-screen flex flex-col justify-center items-center
          bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 text-center p-2">
+            <title>ToyTopia - Error-404</title>
             {/* img */}
             <img
                 src={cryingBaby}

@@ -33,6 +33,8 @@ const ForgetPassword = () => {
 
     return (
         <div className="min-h-screen bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 flex justify-center items-center px-4 py-16">
+            <title>ToyTopia | Forgot Password</title>
+
             <div className="bg-white shadow-lg border-4 border-pink-200 rounded-3xl w-full max-w-md p-8 text-center hover:shadow-2xl transition-all duration-300">
 
                 {/* icon */}
