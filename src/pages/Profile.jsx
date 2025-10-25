@@ -76,12 +76,8 @@ const Profile = () => {
                     <MdEmail className="text-pink-500" />
                     {user?.email || " "}
                 </p>
-                <p className="mt-6 -mb-5 text-sm text-gray-600">Forgot your password
-                    <Link className="text-pink-500 hover:underline font-semibold" to="/forget-password"> {" "}
-                        Click here</Link>.</p>
 
-
-                <div className="h-0.5 bg-pink-300 my-6 mb-10"></div>
+                <div className="h-0.5 bg-pink-300 my-6"></div>
 
                 {/* update form */}
                 <h5 className="text-pink-600 text-lg font-bold mb-1">Update Your Profile</h5>
@@ -128,8 +124,6 @@ const Profile = () => {
                         {loadingSubmit ? 'Saving Changes...' : 'Save Changes'}
                     </button>
                 </form>
-                {/* forget password */}
-                {/* <p className="mt-6 -mb-6 text-sm text-gray-600">Forgot your password <Link className="text-pink-500 hover:underline font-semibold" to="/forget-password">Click here</Link></p> */}
             </div>
         </div>
     );

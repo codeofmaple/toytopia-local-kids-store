@@ -7,7 +7,7 @@ import LoadingPage from "./LoadingPage";
 
 
 const ForgetPassword = () => {
-    const { forgetPassword, user } = useContext(AuthContext);
+    const { forgetPassword } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -18,7 +18,7 @@ const ForgetPassword = () => {
     const handleResetPassword = (e) => {
         e.preventDefault();
 
-        const email = user ? user.email : e.target.email.value;
+        const email = e.target.email.value;
 
         forgetPassword(email)
             .then(() => {
@@ -37,7 +37,7 @@ const ForgetPassword = () => {
 
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 flex justify-center items-center px-4 py-16">
+        <div className="min-h-screen bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 flex justify-center items-center px-4 py-16">
             <title>ToyTopia | Forgot Password</title>
 
             <div className="bg-white shadow-lg border-4 border-pink-200 rounded-3xl w-full max-w-md p-8 text-center hover:shadow-2xl transition-all duration-300">
@@ -64,9 +64,8 @@ const ForgetPassword = () => {
                             type="email"
                             name="email"
                             placeholder="Enter your email"
-                            defaultValue={emailFromLogin || user?.email || ""}
+                            defaultValue={emailFromLogin || ""}
                             className="w-full border border-pink-200 rounded-xl px-4 py-2 focus:ring-2 focus:ring-pink-400 outline-none"
-                            readOnly={!!user}
                             required
                         />
                     </div>
