@@ -76,7 +76,9 @@ const Profile = () => {
                     <MdEmail className="text-pink-500" />
                     {user?.email || " "}
                 </p>
-                <p className="mt-6 -mb-5 text-sm text-gray-600">Forgot your password <Link className="text-pink-500 hover:underline font-semibold" to="/forget-password">Click here</Link>.</p>
+                <p className="mt-6 -mb-5 text-sm text-gray-600">Forgot your password
+                    <Link className="text-pink-500 hover:underline font-semibold" to="/forget-password"> {" "}
+                        Click here</Link>.</p>
 
 
                 <div className="h-0.5 bg-pink-300 my-6 mb-10"></div>

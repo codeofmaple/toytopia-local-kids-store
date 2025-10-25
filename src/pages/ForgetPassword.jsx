@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FaEnvelopeOpenText } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 import LoadingPage from "./LoadingPage";
@@ -9,6 +9,11 @@ import LoadingPage from "./LoadingPage";
 const ForgetPassword = () => {
     const { forgetPassword, user } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const emailFromLogin = location.state?.email || "";
+    console.log(emailFromLogin)
+
 
     const handleResetPassword = (e) => {
         e.preventDefault();
@@ -59,7 +64,7 @@ const ForgetPassword = () => {
                             type="email"
                             name="email"
                             placeholder="Enter your email"
-                            defaultValue={user?.email || ""}
+                            defaultValue={emailFromLogin || user?.email || ""}
                             className="w-full border border-pink-200 rounded-xl px-4 py-2 focus:ring-2 focus:ring-pink-400 outline-none"
                             readOnly={!!user}
                             required

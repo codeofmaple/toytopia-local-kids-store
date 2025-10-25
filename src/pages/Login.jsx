@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [emailForRePassword, setEmailForRePassword] = useState("");
     const { logIn, setUser, logInWithGoogle, auth } = use(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -74,6 +75,8 @@ const Login = () => {
                             focus-within:ring-2  focus-within:ring-pink-400">
                             <FaEnvelope className="text-pink-500 mr-2" />
                             <input
+                                value={emailForRePassword}
+                                onChange={(e) => setEmailForRePassword(e.target.value)}
                                 type="email" name="email" placeholder="Enter your email address" className="w-full outline-none"
                                 required />
                         </div>
@@ -93,7 +96,13 @@ const Login = () => {
                             </button>
                         </div>
                         {/* forget password */}
-                        <p className="text-sm mt-1 text-gray-500">Forgot your password <Link className="text-pink-500 hover:underline font-semibold" to="/forget-password">Click here</Link></p>
+                        <p className="text-sm mt-1 text-gray-500">Forgot your password
+                            <Link
+                                state={{ email: emailForRePassword }}
+                                className="text-pink-500 hover:underline font-semibold"
+                                to="/forget-password"> {" "}
+                                Click here
+                            </Link></p>
                     </div>
 
                     <button
