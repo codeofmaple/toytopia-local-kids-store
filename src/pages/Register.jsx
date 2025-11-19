@@ -42,16 +42,18 @@ const Register = () => {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                updateUser({ displayName: name, photoURL: photo })
-                    .then(() => {
-                        setUser({ ...user, displayName: name, photoURL: photo });
-                        toast.success("Profile updated")
-                        navigate("/")
-                    }).catch((error) => {
-                        const errorCode = error.code;
-                        setUser(user);
-                        toast.success(`Profile update failed! ${errorCode}`)
-                    });
+                // updateUser({ displayName: name, photoURL: photo })
+                //     .then(() => {
+                //         setUser({ ...user, displayName: name, photoURL: photo });
+                //         toast.success("Profile updated")
+                //         navigate("/")
+                //     }).catch((error) => {
+                //         const errorCode = error.code;
+                //         setUser(user);
+                //         toast.success(`Profile update failed! ${errorCode}`)
+                //     });
+
+                setUser({ ...user, displayName: name, photoURL: photo });
                 toast.success("Registration successful")
                 e.target.reset();
             })
