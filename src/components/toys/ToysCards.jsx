@@ -13,7 +13,7 @@ const ToysCards = ({ toysData }) => {
             </div>
             <div className='grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-5 md:container lg:mx-auto mx-[4.16%]'>
                 {
-                    toysData.slice(0, 9).map((toy) => (
+                    toysData.slice(0, 12).map((toy) => (
                         <ToyCard key={toy.toyId} toy={toy}></ToyCard>
                     ))
                 }

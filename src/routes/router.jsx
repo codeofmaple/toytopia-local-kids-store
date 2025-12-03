@@ -10,6 +10,8 @@ import Profile from "../pages/Profile";
 import ForgetPassword from "../pages/ForgetPassword";
 import ErrorPage from "../pages/ErrorPage";
 import LoadingPage from "../pages/LoadingPage";
+import AboutUs from "../pages/AboutUs";
+import Support from "../pages/Support";
 
 const router = createBrowserRouter(
     [
@@ -36,6 +38,14 @@ const router = createBrowserRouter(
                     element: <MoreToys></MoreToys>,
                     loader: () => fetch("/toysdata.json"),
                     hydrateFallbackElement: <LoadingPage></LoadingPage>
+                },
+                {
+                    path: "/about",
+                    element: <AboutUs></AboutUs>
+                },
+                {
+                    path: "/support",
+                    element: <Support></Support>
                 },
                 {
                     path: "/login",

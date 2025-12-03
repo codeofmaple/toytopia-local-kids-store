@@ -14,6 +14,8 @@ const Navbar = () => {
             <NavLink to="/" className="hover:text-pink-600">Home</NavLink>
             {user && <NavLink to="/profile" className="hover:text-pink-600">My Profile</NavLink>}
             <NavLink to="/more-toys" className="hover:text-pink-600">More Toys</NavLink>
+            <NavLink to="/support" className="hover:text-pink-600">Support</NavLink>
+            <NavLink to="/about" className="hover:text-pink-600">About</NavLink>
         </>
     );
 
@@ -73,12 +75,14 @@ const Navbar = () => {
                             Logout
                         </Link>
                     ) : (
-                        <Link
-                            to="/login"
-                            className="btn bg-pink-500 text-white px-6 rounded-lg text-sm hover:bg-pink-600 transition"
-                        >
-                            Login
-                        </Link>
+                        <>
+                            <Link
+                                to="/login"
+                                className="btn bg-pink-500 text-white px-6 rounded-lg text-sm hover:bg-pink-600 transition"
+                            >
+                                Login
+                            </Link>
+                        </>
                     )}
                 </div>
             </div>
