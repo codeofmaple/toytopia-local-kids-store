@@ -28,7 +28,8 @@ const ToyDetails = () => {
     };
 
     return (
-        <div className="md:max-w-4xl max-w-11/12 mx-auto my-10 p-6 bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 rounded-3xl shadow-lg">
+        <div className="md:max-w-4xl max-w-11/12 mx-auto my-10 p-6 
+        bg-linear-to-br from-yellow-50 via-pink-50 to-blue-50 rounded-3xl shadow-lg">
             <title>ToyTopia | Toy Details</title>
 
             {/* img */}

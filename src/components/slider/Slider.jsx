@@ -25,7 +25,7 @@ const slides = [
 
 const Slider = () => {
     return (
-        <div className="container mx-auto rounded-2xl overflow-hidden shadow-lg">
+        <div className="rounded-2xl overflow-hidden shadow-lg ">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 navigation
@@ -43,7 +43,7 @@ const Slider = () => {
             >
                 {slides.map((toy, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative w-full md:aspect-1280/580 h-[70vh] overflow-hidden">
+                        <div className="relative w-full md:aspect-1280/580 h-[70vh] overflow-hidden ">
                             {/* img */}
                             <img
                                 loading="lazy"

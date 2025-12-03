@@ -10,17 +10,19 @@ const HomeLayout = () => {
     const { state } = useNavigation();
 
     return (
-        <div className='min-h-screen flex flex-col relative bg-pink-50'>
-            <Navbar />
+        <div className='bg-pink-50'>
+            <div className='min-h-screen flex flex-col relative'>
+                <Navbar />
 
-            <main className='flex-1 container mx-auto'>
-                {
-                    state === "loading" ? <LoadingPage /> : <Outlet />
-                }
-            </main>
+                <main className='flex-1 container mx-auto lg:px-0 px-4'>
+                    {
+                        state === "loading" ? <LoadingPage /> : <Outlet />
+                    }
+                </main>
 
-            <Footer />
-            <ToastContainer />
+                <Footer />
+                <ToastContainer />
+            </div>
         </div>
     );
 };

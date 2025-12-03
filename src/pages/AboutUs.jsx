@@ -16,7 +16,8 @@ import logoImg from "../assets/ToyTopia_logo_img.png";
 
 const AboutUs = () => {
     const FeatureCard = ({ icon: Icon, title, description }) => (
-        <div className="backdrop-blur-md bg-white/70 shadow-xl p-8 rounded-3xl border border-white/40 hover:shadow-pink-300/50 hover:-translate-y-2 transition-all duration-300">
+        <div className="backdrop-blur-md bg-white/70 shadow-xl p-8 rounded-3xl border
+         border-white/40 hover:shadow-pink-300/50 hover:-translate-y-2 transition-all duration-300">
             <div className="flex justify-center mb-5">
                 <Icon className="text-5xl text-pink-600 bg-pink-100 p-3 rounded-2xl shadow-md" />
             </div>
@@ -28,7 +29,8 @@ const AboutUs = () => {
     );
 
     const TechIcon = ({ icon: Icon, name, color }) => (
-        <div className="flex flex-col items-center gap-2 p-6 bg-white/80 backdrop-blur-lg rounded-2xl border border-white/40 shadow-md hover:shadow-xl transition-all hover:scale-105">
+        <div className="flex flex-col items-center gap-2 p-6 bg-white/80 backdrop-blur-lg 
+        rounded-2xl border border-white/40 shadow-md hover:shadow-xl transition-all hover:scale-105">
             <Icon className={`text-5xl text-${color}-600`} />
             <span className="text-gray-700 font-semibold text-sm">{name}</span>
         </div>
@@ -58,7 +60,8 @@ const AboutUs = () => {
 
             {/* HIGHLIGHT CARDS */}
             <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-3 gap-10 mt-20">
-                <div className="bg-white/70 backdrop-blur-lg shadow-lg p-8 rounded-3xl border border-white/40 hover:shadow-pink-200 hover:-translate-y-2 transition-all duration-300">
+                <div className="bg-white/70 backdrop-blur-lg shadow-lg p-8 rounded-3xl border border-white/40
+                 hover:shadow-pink-200 hover:-translate-y-2 transition-all duration-300">
                     <FaSmile className="text-5xl text-pink-500 mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-gray-800 text-center">
                         Spreading Smiles
@@ -69,7 +72,8 @@ const AboutUs = () => {
                     </p>
                 </div>
 
-                <div className="bg-white/70 backdrop-blur-lg shadow-lg p-8 rounded-3xl border border-white/40 hover:shadow-pink-200 hover:-translate-y-2 transition-all duration-300">
+                <div className="bg-white/70 backdrop-blur-lg shadow-lg p-8 rounded-3xl border border-white/40
+                 hover:shadow-pink-200 hover:-translate-y-2 transition-all duration-300">
                     <FaHandsHelping className="text-5xl text-yellow-500 mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-gray-800 text-center">
                         Supporting Creators
@@ -80,7 +84,8 @@ const AboutUs = () => {
                     </p>
                 </div>
 
-                <div className="bg-white/70 backdrop-blur-lg shadow-lg p-8 rounded-3xl border border-white/40 hover:shadow-pink-200 hover:-translate-y-2 transition-all duration-300">
+                <div className="bg-white/70 backdrop-blur-lg shadow-lg p-8 rounded-3xl border border-white/40
+                 hover:shadow-pink-200 hover:-translate-y-2 transition-all duration-300">
                     <FaGlobeAmericas className="text-5xl text-blue-500 mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-gray-800 text-center">
                         A Global Vision

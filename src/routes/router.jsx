@@ -12,6 +12,7 @@ import ErrorPage from "../pages/ErrorPage";
 import LoadingPage from "../pages/LoadingPage";
 import AboutUs from "../pages/AboutUs";
 import Support from "../pages/Support";
+import Contact from "../pages/Contact";
 
 const router = createBrowserRouter(
     [
@@ -46,6 +47,10 @@ const router = createBrowserRouter(
                 {
                     path: "/support",
                     element: <Support></Support>
+                },
+                {
+                    path: "/contact",
+                    element: <Contact></Contact>
                 },
                 {
                     path: "/login",

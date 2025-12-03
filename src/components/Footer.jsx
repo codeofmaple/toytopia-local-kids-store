@@ -1,14 +1,21 @@
 import React from 'react';
+import logo from '../assets/ToyTopia_logo_img.png';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="bg-linear-to-r from-pink-200 via-100% to-blue-100  text-gray-800">
-            <div className="max-container px-6 py-10 
+        <footer className="bg-pink-200  text-gray-800">
+            <div className="max-container py-10  lg:px-0 px-4
             grid grid-cols-1 md:grid-cols-4 place-items-center gap-8">
                 {/* website info */}
                 <div className='text-center md:text-start'>
-                    <h2 className="text-2xl font-extrabold text-pink-600 mb-3">ToyTopia</h2>
+                    {/* <h2 className="text-2xl font-extrabold text-pink-600 mb-3">ToyTopia</h2> */}
+
+                    <span className="flex items-center gap-2 mb-3 lg:-mt-8 justify-center lg:justify-start ">
+                        <img src={logo} alt="ToyTopia Logo" className="w-10 h-10" />
+                        <span className="text-2xl font-extrabold text-pink-600">ToyTopia</span>
+                    </span>
+
                     <p className="text-sm text-gray-600">
                         A vibrant marketplace helping families discover and support local toy sellers. <br />
                         Fun, safe, and creative — all in one place!
@@ -52,7 +59,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="bg-linear-to-r from-blue-100  to-pink-200 text-center py-4 text-sm border-t border-pink-200">
+            <div className="bg-linear-to-r from-pink-100 via-blue-100  to-pink-200 text-center py-4 text-sm border-t border-pink-200">
                 © 2025 <span className="font-bold text-pink-600">ToyTopia</span> | All Rights Reserved
             </div>
         </footer>

@@ -12,7 +12,7 @@ const UserReview = () => {
     }, []);
 
     return (
-        <div className="px-4">
+        <div className="">
             <div className="container mx-auto text-center">
                 <h2 className="text-4xl font-extrabold text-pink-600 mb-3">
                     What Our Users Say

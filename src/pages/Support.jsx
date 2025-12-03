@@ -54,9 +54,11 @@ const Support = () => {
     const SupportLinkCard = ({ icon: Icon, title, description, link }) => (
         <a
             href={link}
-            className="group bg-white/90 backdrop-blur-lg p-8 rounded-3xl border border-pink-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+            className="group bg-white/90 backdrop-blur-lg p-8 rounded-3xl border border-pink-100 shadow-sm hover:shadow-pink-200
+             hover:shadow-md hover:-translate-y-1 transition-all duration-300"
         >
-            <div className="p-3 rounded-2xl bg-linear-to-br from-pink-500 to-pink-600 shadow-sm inline-flex mb-4 group-hover:scale-105 transition">
+            <div className="p-3 rounded-2xl bg-linear-to-br from-pink-500 to-pink-600 shadow-sm inline-flex mb-4
+             group-hover:scale-105 transition">
                 <Icon className="text-white w-6 h-6" />
             </div>
             <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
@@ -114,7 +116,7 @@ const Support = () => {
             </section>
 
             {/* FAQ SECTION */}
-            <section className="max-w-4xl mx-auto px-6 mt-28 mb-24">
+            <section className="md:max-w-4xl container mx-auto md:px-6 mt-28 mb-24">
                 <h2 className="text-4xl font-extrabold text-pink-600 text-center mb-12">
                     Frequently Asked Questions
                 </h2>
@@ -131,6 +133,7 @@ const Support = () => {
         transition-all 
         overflow-hidden 
         hover:shadow-lg
+        hover:shadow-pink-200
       "
                         >
                             {/* Hidden input for collapse */}
@@ -173,11 +176,10 @@ const Support = () => {
                                 {/* Chevron Icon */}
                                 <svg
                                     className="
-              w-5 h-5 text-pink-500 
-              transition-transform duration-300
-              peer-checked:rotate-180
-              mt-1
-            "
+                                     w-5 h-5 text-pink-500 
+                                     transition-transform duration-300
+                                     peer-checked:rotate-180
+                                     mt-1"
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth="2"
@@ -190,14 +192,13 @@ const Support = () => {
                             {/* ANSWER */}
                             <div
                                 className="
-            max-h-0 
-            overflow-hidden 
-            peer-checked:max-h-40 
-            transition-all duration-300 
-            px-6 py-0 
-            peer-checked:py-4
-            bg-white
-          "
+                                max-h-0 
+                                overflow-hidden 
+                                peer-checked:max-h-40 
+                                transition-all duration-300 
+                                px-6 py-0 
+                                peer-checked:py-4
+                                bg-white"
                             >
                                 <p className="text-gray-600 leading-relaxed text-[15px] pl-1">
                                     {faq.answer}
@@ -210,7 +211,7 @@ const Support = () => {
 
 
             {/* FINAL CTA */}
-            <section className="max-w-4xl mx-auto px-6 text-center pb-24">
+            <section className="md:max-w-4xl mx-auto md:px-6 text-center pb-24">
                 <div className="bg-linear-to-br from-pink-100 to-pink-200 p-10 rounded-3xl border border-pink-200 shadow-inner">
                     <h3 className="text-3xl font-bold text-pink-700 mb-3">
                         Still Need Help?

@@ -14,7 +14,7 @@ const Home = () => {
     return (
         <div className='bg-pink-50 pb-20 py-10 md:space-y-20 space-y-10'>
             {/* slider section */}
-            <section className='banner md:w-full'>
+            <section className='banner '>
                 <SliderInfo></SliderInfo>
                 <Slider></Slider>
             </section>

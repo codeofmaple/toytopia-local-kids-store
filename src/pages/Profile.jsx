@@ -58,7 +58,8 @@ const Profile = () => {
         <div className="min-h-screen bg-linear-to-br from-pink-50 via-pink-50 to-blue-50 flex justify-center items-center py-16 px-6">
             <title>ToyTopia | Profile</title>
 
-            <div className="bg-white shadow-lg rounded-3xl p-8 max-w-md w-full text-center border-4 border-pink-200 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white shadow-lg rounded-3xl p-8 max-w-md w-full text-center border-4 border-pink-200
+             hover:shadow-2xl hover:shadow-pink-200 transition-all duration-300">
                 {/*user img */}
                 <div className="size-32 mx-auto rounded-full overflow-hidden border-4 border-pink-300">
                     {user?.photoURL ? (
