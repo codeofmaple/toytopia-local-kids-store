@@ -24,8 +24,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-linear-to-r from-pink-200 via-pink-100 to-blue-50 shadow-md">
-            <div className="max-container px-4 py-3 flex items-center justify-between">
+        <nav className="bg-pink-200 sticky top-0 z-10 shadow-md">
+            <div className="max-container md:px-0 px-4 py-3 flex items-center justify-between">
                 {/* logo */}
                 <Link to="/" className="flex items-center gap-2">
                     <img src={logo} alt="ToyTopia Logo" className="w-10 h-10" />

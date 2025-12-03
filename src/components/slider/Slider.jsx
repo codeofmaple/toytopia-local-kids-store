@@ -25,7 +25,7 @@ const slides = [
 
 const Slider = () => {
     return (
-        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden mb-8 shadow-lg">
+        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 navigation
@@ -43,13 +43,14 @@ const Slider = () => {
             >
                 {slides.map((toy, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative w-full md:aspect-1280/580 overflow-hidden">
+                        <div className="relative w-full md:aspect-1280/580 h-[70vh] overflow-hidden">
                             {/* img */}
                             <img
                                 loading="lazy"
                                 src={toy.src}
                                 alt={toy.alt}
-                                className="size-full object-cover transform transition-transform duration-900 ease-in-out scale-100 hover:scale-105"
+                                className="size-full object-fill transform 
+                                transition-transform duration-900 ease-in-out scale-100 hover:scale-105"
                             />
 
                             <div className="absolute inset-0 pointer-events-none 
