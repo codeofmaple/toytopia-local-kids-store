@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser, setUser, logInWithGoogle, auth } = use(AuthContext);
+    const { createUser, setUser, logInWithGoogle, updateUser, auth } = use(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
@@ -42,16 +42,16 @@ const Register = () => {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                // updateUser({ displayName: name, photoURL: photo })
-                //     .then(() => {
-                //         setUser({ ...user, displayName: name, photoURL: photo });
-                //         toast.success("Profile updated")
-                //         navigate("/")
-                //     }).catch((error) => {
-                //         const errorCode = error.code;
-                //         setUser(user);
-                //         toast.success(`Profile update failed! ${errorCode}`)
-                //     });
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photo });
+                        toast.success("Profile updated")
+                        navigate("/")
+                    }).catch((error) => {
+                        const errorCode = error.code;
+                        setUser(user);
+                        toast.success(`Profile update failed! ${errorCode}`)
+                    });
 
                 setUser({ ...user, displayName: name, photoURL: photo });
                 toast.success("Registration successful")
