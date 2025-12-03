@@ -12,8 +12,8 @@ const UserReview = () => {
     }, []);
 
     return (
-        <div className=" py-12 px-6">
-            <div className="max-w-7xl mx-auto text-center">
+        <div className="px-4">
+            <div className="container mx-auto text-center">
                 <h2 className="text-4xl font-extrabold text-pink-600 mb-3">
                     What Our Users Say
                 </h2>

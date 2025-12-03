@@ -33,9 +33,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/more-toys",
-                    element: <PrivateRoute>
-                        <MoreToys></MoreToys>
-                    </PrivateRoute>,
+                    element: <MoreToys></MoreToys>,
                     loader: () => fetch("/toysdata.json"),
                     hydrateFallbackElement: <LoadingPage></LoadingPage>
                 },

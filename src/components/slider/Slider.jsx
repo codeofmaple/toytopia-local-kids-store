@@ -25,7 +25,7 @@ const slides = [
 
 const Slider = () => {
     return (
-        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg">
+        <div className="container mx-auto rounded-2xl overflow-hidden shadow-lg">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 navigation

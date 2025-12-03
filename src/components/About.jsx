@@ -4,7 +4,7 @@ import logoImg from '../assets/ToyTopia_logo_img.png'
 
 const About = () => {
     return (
-        <div className="max-w-7xl mx-auto md:px-0 px-[4.166%]">
+        <div className="container mx-auto md:px-0 px-[4.166%]">
             <div className="max-w-5xl mx-auto text-center">
                 {/* title and img */}
                 <h1 className="text-4xl font-extrabold text-pink-600 mb-4 flex flex-col justify-center items-center gap-2">
