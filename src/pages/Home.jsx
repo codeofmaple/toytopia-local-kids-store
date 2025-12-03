@@ -12,7 +12,7 @@ const Home = () => {
     // console.log(toysData)
 
     return (
-        <div className='bg-linear-to-br from-pink-50 via-pink-50 to-blue-50 pb-20 py-10 md:space-y-20 space-y-10'>
+        <div className='bg-pink-50 pb-20 py-10 md:space-y-20 space-y-10'>
             {/* slider section */}
             <section className='banner md:w-full'>
                 <SliderInfo></SliderInfo>

@@ -24,7 +24,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-pink-200 sticky top-0 z-10 shadow-md">
+        <nav className="bg-pink-200 sticky top-0 z-10 shadow-md
+        ">
             <div className="max-container md:px-0 px-4 py-3 flex items-center justify-between">
                 {/* logo */}
                 <Link to="/" className="flex items-center gap-2">
@@ -39,24 +40,28 @@ const Navbar = () => {
 
                 {/* user section */}
                 <div className="flex items-center gap-3">
-                    <div className="relative group cursor-pointer block">
-                        {user && user.photoURL ? (
-                            <img
-                                onClick={() => navigate("./profile")}
-                                className="size-8 rounded-full"
-                                src={user.photoURL}
-                                alt="user-photo"
-                            />
-                        ) : (
-                            <FaUserCircle className="text-3xl size-8 text-gray-600 hover:text-pink-500 transition" />
-                        )}
+                    {
+                        user && (
+                            <div className="relative group cursor-pointer block">
+                                {user && user.photoURL ? (
+                                    <img
+                                        onClick={() => navigate("./profile")}
+                                        className="size-8 rounded-full"
+                                        src={user.photoURL}
+                                        alt="user-photo"
+                                    />
+                                ) : (
+                                    <FaUserCircle className="text-3xl size-8 text-gray-600 hover:text-pink-500 transition" />
+                                )}
 
-                        <div className="absolute hidden group-hover:block bg-white shadow-md rounded-lg text-sm p-3 right-0 mt-2 w-40">
-                            <p className="font-semibold text-gray-700">
-                                {user?.displayName || "Guest"}
-                            </p>
-                        </div>
-                    </div>
+                                <div className="absolute hidden group-hover:block bg-white shadow-md rounded-lg text-sm p-3 right-0 mt-2 w-40">
+                                    <p className="font-semibold text-gray-700">
+                                        {user?.displayName || "Guest"}
+                                    </p>
+                                </div>
+                            </div>
+                        )
+                    }
 
                     {/* login/logout btn */}
                     {user ? (

@@ -51,9 +51,8 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/toy-details/:id",
-                    element: <PrivateRoute>
-                        <ToyDetails></ToyDetails>
-                    </PrivateRoute>,
+                    element:
+                        <ToyDetails></ToyDetails>,
                     loader: () => fetch("/toysdata.json"),
                     hydrateFallbackElement: <LoadingPage></LoadingPage>
                 },

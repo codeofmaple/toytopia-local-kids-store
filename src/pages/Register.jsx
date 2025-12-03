@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser, setUser, updateUser, logInWithGoogle, auth } = use(AuthContext);
+    const { createUser, setUser, logInWithGoogle, auth } = use(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
@@ -82,7 +82,7 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-blue-200 via-pink-100 to-yellow-100 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-pink-50 p-4">
             <title>ToyTopia | Register</title>
 
             <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
